@@ -1,0 +1,19 @@
+const fotoInput = document.getElementById('foto');
+const fotoPreview = document.getElementById('foto-preview');
+
+fotoInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+        fotoPreview.src = e.target.result;
+    }
+
+    reader.readAsDataURL(file);
+});
+
+// Aqui você precisará adicionar a lógica para:
+// 1. Carregar os modelos do Face-api.js
+// 2. Detectar rostos e pontos de referência na imagem
+// 3. Comparar os pontos de referência com os modelos de olhos, narizes, etc.
+// 4. Exibir os resultados
